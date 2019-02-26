@@ -18,9 +18,8 @@ class SongsController < ApplicationController
     binding.pry
     if params[:artist_id]!= nil
       @artist = Artist.find_by(id: params[:artist_id])
-    else
-      @artist=nil
     end
+    
     if @song && @artist == nil
       redirect_to song_path
     elsif @song
