@@ -25,7 +25,7 @@ class SongsController < ApplicationController
           redirect_to artist_songs_path(@artist)
         end
       else
-        redirect_to artists_path
+        redirect_to song_path
       end
     else
       redirect_to songs_path
