@@ -14,7 +14,8 @@ class SongsController < ApplicationController
       flash[:alert] = "Song not found."
       redirect_to  :index
     else
-
+      @song
+    end
   end
 
   def new
