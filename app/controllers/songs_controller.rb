@@ -21,7 +21,7 @@ class SongsController < ApplicationController
     end
 
     if @song && @artist == nil
-      redirect_to song_path
+      redirect_to song_path(@song)
     elsif @song
       redirect_to artist_song_path(@artist, @song)
     elsif @artist && @song == nil
