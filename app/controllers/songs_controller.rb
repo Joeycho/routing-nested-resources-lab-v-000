@@ -24,6 +24,7 @@ class SongsController < ApplicationController
         redirect_to artist_songs_path(@artist)
       end
     else
+      binding.pry
       @song = Song.find_by[id: params[:id]]
     end
   end
