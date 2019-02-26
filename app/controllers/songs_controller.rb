@@ -24,6 +24,7 @@ class SongsController < ApplicationController
         redirect_to artist_songs_path(@artist)
       end
     else
+      binding.pry
       redirect_to song_path(@song)
     end
   end
