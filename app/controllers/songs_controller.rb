@@ -14,20 +14,17 @@ class SongsController < ApplicationController
   end
 
   def show
-    @song = Song.find_by(id: params[:id])
-    binding.pry
-    if params[:artist_id]!= nil
+    if params[:artist_id]
       @artist = Artist.find_by(id: params[:artist_id])
-    end
-
-    if @song && (@artist == nil)
-      redirect_to song_path(@song)
-    elsif @song
-      redirect_to artist_song_path(@artist, @song)
-    elsif @artist && @song == nil
-      redirect_to artist_songs(@artist)
-    else @artist == nil && @song == nil
-      redirect_to songs_path
+      @song = Song.find_by[id: params[:id]]
+      if @song
+        redirect_to artist_song_path(@artist,@song)
+      else
+        flash[:alert]="Song not found"
+        redirect_to artist_songs_path(@artist)
+      end
+    else
+      @song = Song.find_by[id: params[:id]]
     end
   end
 
